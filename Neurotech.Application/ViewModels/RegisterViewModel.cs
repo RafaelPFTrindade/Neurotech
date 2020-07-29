@@ -6,8 +6,6 @@ namespace Neurotech.Application.ViewModels
 {
     public class RegisterViewModel
     {
-        public AuthenticationViewModel Authentication { get; set; }
-
         public InputsViewModel Inputs { get; set; }
 
         public PropertiesViewModel[] Properties { get; set; }

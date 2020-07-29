@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
+using Neurotech.Api.Configurations;
 
 namespace Neurotech
 {
@@ -30,9 +31,11 @@ namespace Neurotech
 
             services.AddSwaggerGen();
 
-            //services
-            //    .UsarServicesHandlers()
-            //    .UsarDocUsignHandlers(Configuration);
+            services.AddAutoMapperConfiguration();
+
+            services.AddMediatR(typeof(Startup));
+
+            services.AddDependencyInjectionConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
