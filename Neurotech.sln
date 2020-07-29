@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neurotech.Api", "Neurotech\Neurotech.Api.csproj", "{90670551-FA56-4251-9F5D-9CAA9FA1B044}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{2FDB0B70-D7E0-4A3C-AC45-2A5B6BCBA0B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{3911E65C-2FEB-4CDE-8526-EF0503F9933F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{88E25868-703D-4D86-BAE1-1DF635AF9A8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{1D5B53FB-B68D-491C-AE8F-217D4ED04B4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{37F6BC3E-AE32-4085-83A9-BA28D212505D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neurotech.Application", "Neurotech.Application\Neurotech.Application.csproj", "{297ECD91-12A0-421D-B5AA-E8501AD0437B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neurotech.Domain", "Neurotech.Domain\Neurotech.Domain.csproj", "{0D7BC5EC-5998-4F3B-8092-79815B7AACAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neurotech.Domain.Core", "Neurotech.Domain.Core\Neurotech.Domain.Core.csproj", "{F64265E5-F85D-4244-9B7A-47CA8A16F556}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 - CrossCutting", "{197FF7E7-C3A2-406B-BDC0-0DC0C29FB175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neurotech.Infra.CrossCutting.Bus", "Neurotech.Infra.CrossCutting.Bus\Neurotech.Infra.CrossCutting.Bus.csproj", "{1DE6CD57-6E44-47E1-944D-21EA1CA9602F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neurotech.Infra.CrossCutting.IoC", "Neurotech.Infra.CrossCutting.IoC\Neurotech.Infra.CrossCutting.IoC.csproj", "{42BC0942-F946-489D-9E98-4AB22B875290}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90670551-FA56-4251-9F5D-9CAA9FA1B044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90670551-FA56-4251-9F5D-9CAA9FA1B044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90670551-FA56-4251-9F5D-9CAA9FA1B044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90670551-FA56-4251-9F5D-9CAA9FA1B044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297ECD91-12A0-421D-B5AA-E8501AD0437B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297ECD91-12A0-421D-B5AA-E8501AD0437B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297ECD91-12A0-421D-B5AA-E8501AD0437B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297ECD91-12A0-421D-B5AA-E8501AD0437B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D7BC5EC-5998-4F3B-8092-79815B7AACAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D7BC5EC-5998-4F3B-8092-79815B7AACAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D7BC5EC-5998-4F3B-8092-79815B7AACAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D7BC5EC-5998-4F3B-8092-79815B7AACAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64265E5-F85D-4244-9B7A-47CA8A16F556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64265E5-F85D-4244-9B7A-47CA8A16F556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64265E5-F85D-4244-9B7A-47CA8A16F556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64265E5-F85D-4244-9B7A-47CA8A16F556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE6CD57-6E44-47E1-944D-21EA1CA9602F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE6CD57-6E44-47E1-944D-21EA1CA9602F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE6CD57-6E44-47E1-944D-21EA1CA9602F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE6CD57-6E44-47E1-944D-21EA1CA9602F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42BC0942-F946-489D-9E98-4AB22B875290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BC0942-F946-489D-9E98-4AB22B875290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BC0942-F946-489D-9E98-4AB22B875290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BC0942-F946-489D-9E98-4AB22B875290}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90670551-FA56-4251-9F5D-9CAA9FA1B044} = {2FDB0B70-D7E0-4A3C-AC45-2A5B6BCBA0B7}
+		{297ECD91-12A0-421D-B5AA-E8501AD0437B} = {88E25868-703D-4D86-BAE1-1DF635AF9A8E}
+		{0D7BC5EC-5998-4F3B-8092-79815B7AACAC} = {1D5B53FB-B68D-491C-AE8F-217D4ED04B4B}
+		{F64265E5-F85D-4244-9B7A-47CA8A16F556} = {1D5B53FB-B68D-491C-AE8F-217D4ED04B4B}
+		{197FF7E7-C3A2-406B-BDC0-0DC0C29FB175} = {37F6BC3E-AE32-4085-83A9-BA28D212505D}
+		{1DE6CD57-6E44-47E1-944D-21EA1CA9602F} = {197FF7E7-C3A2-406B-BDC0-0DC0C29FB175}
+		{42BC0942-F946-489D-9E98-4AB22B875290} = {197FF7E7-C3A2-406B-BDC0-0DC0C29FB175}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D16BFF1D-6E6F-400E-9859-DA851C832498}
+	EndGlobalSection
+EndGlobal
