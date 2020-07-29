@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Neurotech.Application\Neurotech.Application.csproj" />
+    <ProjectReference Include="..\Neurotech.Infra.CrossCutting.Bus\Neurotech.Infra.CrossCutting.Bus.csproj" />
   </ItemGroup>
 
 </Project>
