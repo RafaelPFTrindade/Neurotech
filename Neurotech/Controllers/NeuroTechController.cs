@@ -22,6 +22,7 @@ namespace Neurotech.Controllers
             _neurotechService = neurotechService;
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]RegisterViewModel model)
         {
