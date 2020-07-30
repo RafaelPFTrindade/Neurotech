@@ -8,8 +8,8 @@ namespace Neurotech.Application.ViewModels
     public class InputValueViewModel
     {
         [Required]
-        public string Name { get; set; }
+        public string NmParametro { get; set; }
 
-        public string Value { get; set; }
+        public string VlParametro { get; set; }
     }
 }

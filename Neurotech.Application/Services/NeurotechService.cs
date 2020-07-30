@@ -4,6 +4,7 @@ using NetDevPack.Mediator;
 using Neurotech.Application.EventSourcedNomalizers;
 using Neurotech.Application.Interfaces;
 using Neurotech.Application.ViewModels;
+using Neurotech.Domain;
 using Neurotech.Domain.Commands;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace Neurotech.Application.Services
     {
         private readonly IMapper _mapper;
 
-        private readonly IMediatorHandler _mediator;
+        private readonly IMediator _mediator;
 
-        public NeurotechService(IMapper mapper, IMediatorHandler mediator)
+        public NeurotechService(IMapper mapper, IMediator mediator)
         {
             _mapper = mapper;
             _mediator = mediator;
@@ -31,8 +32,8 @@ namespace Neurotech.Application.Services
 
         public async Task<RegisterResultData> Submit(RegisterViewModel model)
         {
-            var registerCommand = _mapper.Map<SyncRegisterCommand>(model);
-            await _mediator.SendCommand(registerCommand);
+            var registerCommand = new SyncRegisterCommand(_mapper.Map<InputVO>(model));
+            await _mediator.Send(registerCommand);
             throw new NotImplementedException();
         }
     }

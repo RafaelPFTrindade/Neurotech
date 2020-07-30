@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using NetDevPack.Messaging;
 using Neurotech.Domain.Commands;
+using Neurotech.Domain.Models;
 using Neurotech.Domain.Results;
 using Newtonsoft.Json;
 using System;
@@ -15,8 +16,7 @@ using System.Threading.Tasks;
 
 namespace Neurotech.Domain.Handler
 {
-    public class SyncRegisterHandler : CommandHandler,
-        IRequestHandler<SyncRegisterCommand, ValidationResult>
+    public class SyncRegisterHandler : IRequestHandler<SyncRegisterCommand, ValidationResult>
     {
         private readonly IHttpClientFactory httpClientFactory;
 
@@ -33,14 +33,11 @@ namespace Neurotech.Domain.Handler
 
             var httpClient = httpClientFactory.CreateClient("neurotech");
             httpClient.DefaultRequestHeaders.Clear();
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
-
-            var Login = configuration.GetValue<string>("Neurotech:Login");
-            var Password = configuration.GetValue<string>("Neurotech:Password");
-
-            var json = JsonConvert.SerializeObject(request, Formatting.Indented);
-            var stringContent = new StringContent(json);
-            using (var result = await httpClient.PostAsync($"/services/rest/workflow/submit", stringContent))
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "*/*");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "text/plain; application/json");
+            var stringContent = PrepararBody(request);
+            var content = new StringContent(stringContent, Encoding.UTF32, "application/json");
+            using (var result = await httpClient.PostAsync($"/services/rest/workflow/submit", content))
             {
                 if (result.StatusCode != HttpStatusCode.OK)
                 {
@@ -49,5 +46,16 @@ namespace Neurotech.Domain.Handler
             throw new NotImplementedException();
         }
 
+        private string PrepararBody(SyncRegisterCommand request)
+        {
+            var Login = configuration.GetValue<string>("Neurotech:Login");
+            var Password = configuration.GetValue<string>("Neurotech:Password");
+
+            request.Authentication = new AuthenticationVO(Login, Password);
+            request.Properties = new PropertiesVO[1];
+            request.Properties[0] = new PropertiesVO("FILIAL_ID", "0"); ;
+
+            return JsonConvert.SerializeObject(request, Formatting.Indented);
+        }
     }
 }

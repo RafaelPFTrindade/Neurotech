@@ -6,7 +6,7 @@ namespace Neurotech.Domain
 {
     public class InputVO
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Policy { get; set; }
 

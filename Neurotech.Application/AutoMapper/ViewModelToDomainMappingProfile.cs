@@ -2,12 +2,7 @@
 using Neurotech.Application.ViewModels;
 using Neurotech.Domain.Commands;
 using Neurotech.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography.X509Certificates;
 using System.Linq;
-using Neurotech.Domain.Results;
 
 namespace Neurotech.Application.AutoMapper
 {
@@ -15,9 +10,12 @@ namespace Neurotech.Application.AutoMapper
     {
         public ViewModelToDomainMappingProfile()
         {
-            CreateMap<RegisterViewModel, SyncRegisterCommand>()
-                .ForPath(d => d.Submit.Inputs, opts => opts.MapFrom(s => s.Submit.Inputs.Select(x => new InputValueVO(x.Name, x.Value))))
-                .ForMember(d => d.Properties, opts => opts.MapFrom(s => s.Properties.Select(x => new PropertiesVO(x.Key, x.Value))));
+            CreateMap<RegisterViewModel, InputVO>()
+                .ForMember(d => d.Id, opts => opts.MapFrom(s => s.IdProposta))
+                .ForMember(d => d.Policy, opts => opts.MapFrom(s => s.NmPolitica))
+                .ForMember(d => d.ResultingVariable, opts => opts.MapFrom(s => s.NmFluxoResultado))
+                .ForMember(d => d.Version, opts => opts.MapFrom(s => s.TagVersaoPolitica))
+                .ForMember(d => d.Inputs, opts => opts.MapFrom(s => s.LsParametros.Select(x => new InputValueVO(x.NmParametro, x.VlParametro))));
 
         }
     }
