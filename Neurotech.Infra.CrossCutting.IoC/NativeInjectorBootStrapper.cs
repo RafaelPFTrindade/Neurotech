@@ -7,6 +7,7 @@ using Neurotech.Application.Interfaces;
 using Neurotech.Application.Services;
 using Neurotech.Domain.Commands;
 using Neurotech.Domain.Handler;
+using Neurotech.Domain.Results;
 using Neurotech.Infra.CrossCutting.Bus;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Neurotech.Infra.CrossCutting.IoC
             services.AddScoped<INeurotechService, NeurotechService>();
 
             // Domain - Commands
-            services.AddScoped<IRequestHandler<SyncRegisterCommand, ValidationResult>, SyncRegisterHandler>();
+            services.AddScoped<IRequestHandler<SyncRegisterCommand, Resultado>, SyncRegisterHandler>();
 
             services.AddHttpClient("neurotech", client => configuration.GetSection("Neurotech").Bind(client));
         }

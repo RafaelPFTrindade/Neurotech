@@ -6,7 +6,7 @@ using Neurotech.Domain.Results;
 
 namespace Neurotech.Domain.Commands
 {
-    public class SyncRegisterCommand : IRequest<ValidationResult>
+    public class SyncRegisterCommand : IRequest<Resultado>
     {
         public SyncRegisterCommand(InputVO submit)
         {

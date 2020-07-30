@@ -10,13 +10,14 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Neurotech.Domain.Handler
 {
-    public class SyncRegisterHandler : IRequestHandler<SyncRegisterCommand, ValidationResult>
+    public class SyncRegisterHandler : IRequestHandler<SyncRegisterCommand, Resultado>
     {
         private readonly IHttpClientFactory httpClientFactory;
 
@@ -28,7 +29,7 @@ namespace Neurotech.Domain.Handler
             this.configuration = configuration;
         }
 
-        public async Task<ValidationResult> Handle(SyncRegisterCommand request, CancellationToken cancellationToken)
+        public async Task<Resultado> Handle(SyncRegisterCommand request, CancellationToken cancellationToken)
         {
 
             var httpClient = httpClientFactory.CreateClient("neurotech");
@@ -41,9 +42,10 @@ namespace Neurotech.Domain.Handler
             {
                 if (result.StatusCode != HttpStatusCode.OK)
                 {
+                    throw new Exception("Problema na comunicação com o motor Neurotech");
                 }
+                return DeserializeResponse<Resultado>(result.Content);
             }
-            throw new NotImplementedException();
         }
 
         private string PrepararBody(SyncRegisterCommand request)
@@ -56,6 +58,12 @@ namespace Neurotech.Domain.Handler
             request.Properties[0] = new PropertiesVO("FILIAL_ID", "0"); ;
 
             return JsonConvert.SerializeObject(request, Formatting.Indented);
+        }
+
+        private T DeserializeResponse<T>(HttpContent responseContent)
+        {
+            string _responseContent = responseContent.ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject<T>(_responseContent);
         }
     }
 }

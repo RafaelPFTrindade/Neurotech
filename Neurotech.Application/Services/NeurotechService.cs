@@ -6,6 +6,7 @@ using Neurotech.Application.Interfaces;
 using Neurotech.Application.ViewModels;
 using Neurotech.Domain;
 using Neurotech.Domain.Commands;
+using Neurotech.Domain.Results;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,10 @@ namespace Neurotech.Application.Services
             GC.SuppressFinalize(this);
         }
 
-        public async Task<RegisterResultData> Submit(RegisterViewModel model)
+        public async Task<Resultado> Submit(RegisterViewModel model)
         {
             var registerCommand = new SyncRegisterCommand(_mapper.Map<InputVO>(model));
-            await _mediator.Send(registerCommand);
-            throw new NotImplementedException();
+            return await _mediator.Send(registerCommand);
         }
     }
 }

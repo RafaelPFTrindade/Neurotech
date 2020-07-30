@@ -26,8 +26,7 @@ namespace Neurotech.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]RegisterViewModel model)
         {
-            await _neurotechService.Submit(model);
-            return Ok();
+            return Ok(await _neurotechService.Submit(model));
         }
 
     }
