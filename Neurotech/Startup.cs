@@ -42,7 +42,7 @@ namespace Neurotech
 
             services.AddMediatR(typeof(Startup));
 
-            services.AddDependencyInjectionConfiguration();
+            services.AddDependencyInjectionConfiguration(Configuration);
 
             services.AddCors(options =>
             {

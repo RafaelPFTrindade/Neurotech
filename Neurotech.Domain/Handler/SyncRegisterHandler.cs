@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation.Results;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using NetDevPack.Messaging;
 using Neurotech.Domain.Commands;
@@ -14,7 +15,8 @@ using System.Threading.Tasks;
 
 namespace Neurotech.Domain.Handler
 {
-    public class SyncRegisterHandler : CommandHandler
+    public class SyncRegisterHandler : CommandHandler,
+        IRequestHandler<SyncRegisterCommand, ValidationResult>
     {
         private readonly IHttpClientFactory httpClientFactory;
 
@@ -26,7 +28,7 @@ namespace Neurotech.Domain.Handler
             this.configuration = configuration;
         }
 
-        public async Task<Resultado> Handle(SyncRegisterCommand request, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Handle(SyncRegisterCommand request, CancellationToken cancellationToken)
         {
 
             var httpClient = httpClientFactory.CreateClient("neurotech");
@@ -46,5 +48,6 @@ namespace Neurotech.Domain.Handler
             }
             throw new NotImplementedException();
         }
+
     }
 }
