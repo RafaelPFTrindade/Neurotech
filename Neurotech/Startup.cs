@@ -25,11 +25,6 @@ namespace Neurotech
                 .AddJsonFile("appsettings.json", true, true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true);
 
-            if (env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
-
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
