@@ -48,6 +48,17 @@ namespace Neurotech
             services.AddMediatR(typeof(Startup));
 
             services.AddDependencyInjectionConfiguration();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllHeaders",
+                      builder =>
+                      {
+                          builder.AllowAnyOrigin()
+                                 .AllowAnyHeader()
+                                 .AllowAnyMethod();
+                      });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +68,7 @@ namespace Neurotech
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("AllowAllHeaders");
             }
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
